@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        body{
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    place-items: center;
+    background: linear-gradient(90deg, rgba(179,52,178,1) 0%, rgba(182,120,49,1) 28%, rgba(106,68,159,1) 56%, rgba(23,137,190,1) 78%, rgba(0,212,255,1) 100%);
+}
+.container
+{
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(214, 202, 202, 0.05);
+    height: 90vh;
+    width: 38vw;
+    background: radial-gradient(at center, rgba(214, 202, 202, 0.05), rgba(224, 217, 217, 0.5));
+}
+
+.container h1
+{
+    margin: 10px;
+}
+.calculator{
+
+    margin: 5px 30px;
+    text-align: left;
+}
+input{
+    color: rgba(51, 45, 45, 0.5);
+    font-weight: 650;
+    outline: none;
+    border: none;
+    box-shadow: 0 2px 4px rgba(214, 202, 202, 0.05);
+    font-size: 18px;
+    padding: 10px;
+    height: 35px;
+    margin: 8px;
+    display: flex;
+    width: 20vw;
+}
+.button button{
+    padding: 10px;
+    margin: 10px 110px;
+    font-size: 18px;
+    font-weight: 650;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(224, 217, 217, 0.5);
+}
+.result{
+    position: relative;
+    margin: 20px 0;
+}
+label{
+    font-weight: 600;
+}
+
+h3{
+    font-size: 20px;
+}
+.result{
+    text-align: center;
+    font-weight: 750;
+    
+
+}
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Simple Interest Calculator</h1>
+    <div class="calculator">
+        <div class="amt">
+    <label for="amount">Principal Amount</label>
+    <input type="number"placeholder="Enter the Principal Amount"id="amount">
+    <br>
+        </div>
+        <div class="rate">
+    <label for="rate">Rate%</label>
+    <input type="number"placeholder="Enter Rate"id="rate">
+    <br>
+</div>
+<div class="time">
+    <label for="time">Time</label>
+    <input type="number"placeholder="Enter Time"id="time"><br>
+    <br>
+</div>
+<div class="button">
+    <button onclick="calculate()">calculate</button>
+</div>
+</div>
+<div class="result">
+    <p>Principal Amount is:$<span id="output-1"></span></p>
+    <p>Total Value is:$<span id="output-2"></span></p>
+    <p>Total Interest is:$<span id="output-3"></span></p>
+</div>
+<div class="button">
+    <button onclick="reset()"></button>
+</div>
+</div>
+    
+<script>
+    function calculate(){
+    var amount=parseInt(document.getElementById('amount').value);
+    var rate=parseInt(document.getElementById('rate').value);
+    var time=parseInt(document.getElementById('time').value);
+    var interest=amount*rate*time/100;
+    var total=interest+amount;
+    document.getElementById("output-1").innerHTML=amount;
+    document.getElementById("output-2").innerHTML=interest;
+    document.getElementById("output-3").innerHTML=total;
+    }
+    function reset(){
+        document.getElementsByClassName("calculator").innerHTML=result;
+    }
+    </script>
+</body>
+</html>
